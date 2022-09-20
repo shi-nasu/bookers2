@@ -1,17 +1,74 @@
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+<h2>User info</h2>
+ <% @post_images.each do |user| %>
+ 
+  <% if user.image.attached? %>
+    <%= image_tag user.image, size: "200x200" %>
+  <% else %>
+    <%= image_tag 'no_image', size: "200x200" %>
+  <% end %>
+  
+  <%= f.file_field :image, accept: "image/*" %>
+  
+  <%= link_to edit_user, class: "nav-link text-light" do %>
+     <p><i class="fas fa_user_cog"></i></p>
+  <% end %>
+ <% end %>
+
+<table class="table">
+  <tbody>
+    <tr>
+	    <th>name</th>
+
+    </tr>
+    <tr>
+	    <th>introduction</th>
+	    
+	  </tr>
+  </tbody>
+</table>
+
+<div class="row">
+  <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block" do %>
+    <i class="fas fa-user-cog"></i>
+  <% end %>
+</div>
+
+ <h2>New book</h2>
+<!-- form_with部分 -->
+  <%= form_with model: @book do |f| %>
+    <h4>Title</h4>
+    <%= f.text_field :title %>
+	
+    <h4>Opinion</h4>
+    <%= f.text_area :body %><br>
+	
+    <%= f.submit 'Create Book' %>
+  <% end %>
+</div>
+
+<div class="col-md-8 offset-md-1">
 <h1>Books</h1>
-<table>
+ <table class="table table-hover table-inverse">
   <thead>
     <tr>
+      <th></th>
       <th>Title</th>
       <th>Opinion</th>
-      <th colspan="2"></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
-  <tbody>
+ </table>
+ 
   <% @books.each do |book| %>
   <tr>
     <td><%= book.title %></td>
     <td><%= book.body %></td>
   </tr>
   <% end %>
-  </tbody>
+</div>
+  </div>
+</div>
+</div>
