@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
-    @post_image = @user.post_images
-    @books = Book.all
+    @books = @user.books
     @book = Book.new
   end
   
@@ -11,6 +10,8 @@ class UsersController < ApplicationController
   end
   
   def index
+    @newbook = Book.new
+    @user = current_user
     @users = User.all
     @books = Book.all
   end
@@ -22,6 +23,17 @@ class UsersController < ApplicationController
     redirect_to book_path(@book.id)
   end
   
+  #updateが成功した時
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:notice] = '1 error prohibited this obj from being saved:'
+      redirect_to user_path(@user.id)
+  #失敗した時
+    else
+      render :edit
+    end
+  end
   
   private
   

@@ -1,22 +1,29 @@
 <body>
   <main>
-    <div class= headline>
-      <h1>welcome to <span class="fas fa-book"></span><strong>Bookers !!</strong></h1>
+    <p id="notice"></p>
+    <div class= "container">
+      <div class="row">
+        <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+          <h1>welcome to <span class="fas fa-book"></span><strong>Bookers !!</strong></h1>
+            <p>in <span class="fas fa-book"></span><strong>Bookers</strong>,</p>
+            <p class="p2">you can share and exchange your opinions , inpressions , and emotions</p>
+            <p>about various books!</p>
+            
+            <div class="btn-wrapper col-10 mx-auto">
+              <div class="row">
+                <%= link_to new_user_session_path do %>
+                  <button class="btn btn-info btn-sm btn-block mb-3 sign_in">Log in</button>
+                <%end%>
+              </div>
+                <br>
+              <div class="row">
+                <%= link_to new_user_registration_path do %>
+                  <button class="btn btn-success btn-sm btn-block sign_up">Sign up</button>
+                <%end%>
+              </div>
+            </div>
+        </div>
+      </div>
     </div>
-    <p>in <span class="fas fa-book"></span><strong>Bookers</strong>,</p>
-    <p class="p2">you can share and exchange your opinions , inpressions , and emotions<br>
-       about various books!
-    </p>
-    
-    <div class="btn">
-        <%= link_to new_user_session_path do %>
-          <button class="log-in-btn">Log in</button>
-        <%end%>
-        <br>
-        <%= link_to new_user_registration_path do %>
-          <button class="sign-up-btn">Sign up</button>
-        <%end%>
-    </div>
-  
   </main>
 </body>

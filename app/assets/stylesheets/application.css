@@ -14,16 +14,4 @@
  *= require_self
  */
  
- .container p {
-   margin: 15px;
-   font-size: 20px;
- }
  
- .navbar {
-  line-height: 1px;
- }
- 
- footer {
-   text-align: center;
-   margin: 40px 15px;
- }

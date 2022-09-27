@@ -1,7 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bookers2</title>
+    <style type="text/css">.turbolinks-progress-bar {
+      position: fixed;
+      display: block;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: #0076ff;
+      z-index: 9999;
+      transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+      transform: translate3d(0, 0, 0);
+    }</style>
+    
+    <link rel="stylesheet" media="all" href="/packs/css/application-859f38f5.css" data-turbolinks-track="reload">
+    
+    <title>Bookers2Ver2</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -67,7 +81,13 @@
     </header>
     <%= yield %>
   <footer>
-    <p>CopyRight Infratop.inc</p>
+    <div class="container mt-5">
+  	  <div class="row">
+    	  <div class="mx-auto">
+    		  <p>CopyRight Infratop.inc</p>
+    	  </div>
+      </div>
+    </div>
   </footer>
   </body>
 </html>
