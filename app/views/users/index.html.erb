@@ -58,7 +58,11 @@
               <tbody>
                 <tr>
                   <td>
-                    <%= image_tag @user.get_profile_image(100,100), size: "100x100" %>
+                    <td>                <!-- ↓　投稿したユーザーのid -->
+                      <%= link_to user_path(book.user.id) do %>
+                        <%= image_tag book.user.get_profile_image(70,70), size: "70x70" %>
+                      <% end %>
+                        </td>
                   </td>
                   <td>
                     <%= @user.name %>

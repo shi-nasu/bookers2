@@ -38,7 +38,9 @@
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
     
-    <input type="submit" name="commit" value="Sign up" class="btn btn-sm btn-success" data-disable-with="Sign up">
+    <div class="actions">
+      <%= f.submit "Sign up" %>
+    </div>
     <% end %>
     
   <%= render "devise/shared/links" %>
