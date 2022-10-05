@@ -20,7 +20,7 @@
         </table>
 
         <div class="row">
-          <%= link_to edit_user_path(current_user.id), class: "btn btn-outline-secondary btn-block" do %>
+          <%= link_to edit_user_path(@user.id), class: "btn btn-outline-secondary btn-block" do %>
             <i class="fas fa-user-cog"></i>
           <% end %>
         </div>
@@ -58,7 +58,9 @@
             <% @books.each do |book| %>
               <tr>
                 <td>
+                  <%= link_to user_path(book.user) do %>
                   <%= image_tag book.user.get_profile_image(70,70), size: "70x70" %>
+                  <% end %>
                 </td>
                 <td>
                   <%= link_to book.title, book_path(book.id) %>　<!-- book.titleにlinkをつけた記述-->

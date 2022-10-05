@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+
+  before_action :move_to_signed_in
+
   def show
     @user = User.find(params[:id])
     @books = @user.books
@@ -7,6 +10,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+    if @user == current_user
+        render "edit"
+    else
+        redirect_to user_path(current_user)
+    end
   end
 
   def index
@@ -33,4 +41,12 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :introduction)
   end
+
+  def move_to_signed_in
+    unless user_signed_in?
+      #サインインしていないユーザーはログインページが表示される
+      redirect_to  '/users/sign_in'
+    end
+  end
+
 end
