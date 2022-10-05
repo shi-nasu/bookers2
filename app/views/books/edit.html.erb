@@ -1,5 +1,15 @@
 <main>
   <p id="notice"></p>
+
+  <% if @book.errors.any? %>
+    <%= @book.errors.count %>件のerrorが発生しました
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+        <% end %>
+      </ul>
+  <% end %>
+
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
@@ -9,19 +19,19 @@
                 <label>Title</label>
                   <%= f.text_field :title %>
               </div>
-        
+
               <div class="form-group">
                 <label>Opinion</label>
                   <%= f.text_field :body %>
               </div>
-        
+
               <div class="form-group">
                 <label>
                   <%= f.submit 'Update Book' %>
                 </label>
             <% end %>
               </div>
-              
+
               <td>
                 <%= link_to "Show", book_path(@book.id) %>
               </td>
